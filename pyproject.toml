@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "steady-vision"
+version = "0.1.0"
+description = "Ball detection and tracking for the Steady 3RRS ball-balancing robot"
+readme = "README.md"
+requires-python = ">=3.9"
+# On the Raspberry Pi prefer the apt packages python3-opencv / python3-numpy
+# and python3-picamera2 (venv created with --system-site-packages).
+dependencies = ["numpy", "opencv-python-headless"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["vision*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
